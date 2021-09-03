@@ -13,16 +13,16 @@ def home(request):
 def submitCount(request):
     # print(request.method)
     if request.method == 'POST':
-        textInput = request.POST.get(
-            'textInput', None)  # getting the text input
+        textInput = request.POST.get('textInput', None)  # getting the text input
         # if the text is not empty
-        if textInput is not None and len(textInput) != 0:
+        if (textInput is not None) and (len(textInput) != 0):
             words = (textInput.split())
             # print(words)
             words.sort()
             #print('im in a get request')
             wordCount = len(words)
             wordDict = countWordsInput(words)
+
             return render(request, 'count.html', {'textInput': textInput, 'words': words, 'wordCount': wordCount, "wordDict": wordDict.items()})
         else:
             #error message
@@ -46,4 +46,6 @@ def countWordsInput(words) -> dict:
     return dict
 
 def about(request):
+    dict = {}
+
     return render(request, 'about.html')
