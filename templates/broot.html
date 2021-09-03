@@ -1,0 +1,26 @@
+<!--Error message handling-->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}
+        </li>
+        {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'about'%}">About this Web App</a>
+
+<div style="text-align:center">
+    <!-- redirecting the "count words" button to count.html-->
+
+    <form method="POST" action={% url "count" %}>
+        {% csrf_token %}
+        <h1> Word Count </h1>
+        <!-- creating a text field to take user input-->
+        <textarea name="textInput" cols="30" rows="10"></textarea>
+        <br /><br />
+        <!-- creating a submit button for user-->
+        <input type="submit" value="Count Words" />
+    </form>
+</div>
