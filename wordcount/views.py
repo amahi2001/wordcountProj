@@ -46,6 +46,4 @@ def countWordsInput(words) -> dict:
     return dict
 
 def about(request):
-    dict = {}
-
     return render(request, 'about.html')
