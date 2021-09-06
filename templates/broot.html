@@ -14,7 +14,7 @@
 <div style="text-align:center">
     <!-- redirecting the "count words" button to count.html-->
 
-    <form method="POST" action={% url "count" %}>
+    <form method="POST" action= {% url "count" %}>
         {% csrf_token %}
         <h1> Word Count </h1>
         <!-- creating a text field to take user input-->
